@@ -47,7 +47,7 @@ class EmpleadoController extends Controller
             'segundo_apellido' => 'nullable|string|max:255',
             'rol' => 'nullable|string|max:255',
             'fecha_nacimiento' => 'nullable|date',
-            'dni' => 'required|regex:/^\d{8}[A-Z]$/|unique:empleados,dni,' . $empleado->id,
+            'dni' => 'required|unique:empleados,dni,' . $empleado->id,
             'email' => 'required|email|unique:empleados,email,' . $empleado->id,
         ]);
 
