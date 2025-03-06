@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <h1 class="mb-4">Crear un empleado para "{{ $oficina->nombre }}"</h1>
     <form action="{{ route('oficinas.empleados.store', $oficina) }}" method="POST">
         @csrf
